@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\User;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -35,7 +36,7 @@ class UserSpecificationTest extends TestCase
     public function it_has_the_needed_attributes()
     {
         $this->assertFields();
-        }
+    }
 
     /**
      * @test
@@ -43,7 +44,7 @@ class UserSpecificationTest extends TestCase
     public function it_is_written_to_the_database()
     {
         $this->assertIsInDatabase(['name' => 'Tanja Bräther']);
-}
+    }
 
     /**
      * @test
@@ -51,5 +52,19 @@ class UserSpecificationTest extends TestCase
     public function it_cannot_be_written_to_the_db_without_required_fields()
     {
         $this->assertRequiredFields();
+    }
+
+    /**
+     * @test
+     */
+    public function it_has_a_connected_role()
+    {
+        $user = $this->factory
+            ->forRole([
+                'name' => 'admin'
+            ])
+            ->create();
+
+        $this->assertEquals('admin', $user->role->name);
     }
 }
