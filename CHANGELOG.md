@@ -2,6 +2,10 @@
 <a name="0.1.0"></a>
 ## 0.1.0 (2024-01-09)
 
+### Chore
+
+* Compile vendors and add sass
+
 ### Core
 
 * Add changelog automation
