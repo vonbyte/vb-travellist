@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+html, body {
+  height: auto;
+  min-height: 100vh;
+}
+
+html {
+  overflow-y: auto;
+}
+body {
+
+  background: var(--page-background);
+  font-size: 1rem;
+}
+
+body, button, input, select, textarea {
+  font-family: var(--font-body);
+}
+h1 h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
+}
+
+h1 {
+  font-size: var(--size-1);
+}
+h2 {
+  font-size: var(--size-1);
+}
+h3 {
+  font-size: var(--size-1);
+}
+h4 {
+  font-size: var(--size-1);
+}

@@ -1,0 +1,72 @@
+:root {
+  /* Fonts */
+  --font-body: 'Lato', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-head: 'Lora', Times, serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+  /* Colors */
+  --color-gray-100: #f3eceb;
+  --color-gray-500: #dcd7d4;
+  --color-brown-500: #b1a29a;
+  --color-brown-900: #433d40;
+  --color-gold-500: #b9974c;
+
+  --color-white: lighten(var(--color-gray-100), 25%);
+  --color-black: darken(var(--color-brown-900), 25%);
+
+  --text-color: var(--color-brown-900);
+  --heading-color: inherit;
+  --light-text-color: var(--color-brown-500);
+  --link-color: var(--color-brown-900);
+  --link-color-alt: var(--color-brown-500);
+  --page-background: var(--color-gray-100);
+  --element-background: var(--color-white);
+  --accent-color: var(--link-color);
+  --invalid-color: #DC2F2F;
+  --success-color: #39b042;
+  --info-color: #dcb92f;
+
+  /* Sizes */
+  --size-1: 2.8rem;
+  --size-2: 2.3rem;
+  --size-3: 1.8rem;
+  --size-4: 1.3rem;
+  --size-5: 1rem;
+  --size-6: 0.8rem;
+  --size-7: 0.6rem;
+
+  /* Spacing */
+  --content-width: 55rem;
+  --sidebar-width: 15rem;
+  --global-spacing: 1.5rem;
+  --small-spacing: 0.5rem;
+  --element-spacing: 1rem;
+  --module-spacing: 4rem;
+
+  /* Typography */
+  --weight-light: 300;
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Grid */
+  --gap: 2rem;
+
+  /* Responsiveness */
+  --breakpoint-small: 768px;
+  --breakpoint-medium: 960px;
+  --breakpoint-large: 1152px;
+  --breakpoint-xlarge: 1600px;
+  --breakpoint-xxlarge: 1920px;
+
+  /* Element Styling */
+  --border-radius: 4px;
+  --border-radius-small: 2px;
+  --border-radius-large: 6px;
+
+  /* Animations */
+  --easing: ease-out;
+  --speed: 86ms;
+
+}
