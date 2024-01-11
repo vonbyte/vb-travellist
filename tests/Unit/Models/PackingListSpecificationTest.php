@@ -51,4 +51,14 @@ class PackingListSpecificationTest extends TestCase
         $data = ['name' => 'My unique Packing list'];
         $this->assertIsInDatabase($data, $relations);
         }
+
+    /**
+     * @test
+     */
+    public function it_cannot_be_written_to_the_db_without_required_fields()
+    {
+        $relations = [];
+        $this->assertRequiredFields($relations);
+
+            }
 }
