@@ -3,12 +3,13 @@
 namespace Tests\Unit\Models;
 
 use App\Models\PackingList;
-use PHPUnit\Framework\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 use Tests\Traits\TestsModelSpecification;
 
 class PackingListSpecificationTest extends TestCase
 {
-    use TestsModelSpecification;
+    use TestsModelSpecification, RefreshDatabase;
 
     protected function setUp(): void
     {
@@ -25,6 +26,8 @@ class PackingListSpecificationTest extends TestCase
         $this->requiredFields = [
             "name"
         ];
+
+        parent::setUp();
     }
 
     /**
@@ -36,8 +39,16 @@ class PackingListSpecificationTest extends TestCase
         // but I was lazy
         // use a laravel factory and check if fields are correctly set
         $this->assertFields();
+    }
 
-
-
+    /**
+     * @test
+     */
+    public function it_can_be_written_to_the_database()
+    {
+        // isn't a common unit test approach, because of database integration
+        $relations = [];
+        $data = ['name' => 'My unique Packing list'];
+        $this->assertIsInDatabase($data, $relations);
         }
 }

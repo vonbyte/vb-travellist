@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('packing_lists', function (Blueprint $table) {
             $table->id();
+            $table->string('name',150);
+            $table->date('startDate')->nullable();
+            $table->date('endDate')->nullable();
+            $table->text('description')->nullable();
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

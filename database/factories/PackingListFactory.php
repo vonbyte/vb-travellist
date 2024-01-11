@@ -17,7 +17,7 @@ class PackingListFactory extends Factory
             "startDate" => fake()->dateTimeInInterval('+2 weeks', '+2 weeks'),
             "endDate" => fake()->dateTimeInInterval('+4 weeks', '+2 weeks'),
             "description" => fake()->text(100),
-            "notes" =>fake()->paragraphs(2)
+            "notes" =>fake()->text(100),
         ];
     }
 }
