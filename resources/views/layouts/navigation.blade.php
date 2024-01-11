@@ -5,17 +5,16 @@
             <div>
                 <!-- Logo -->
                 <div>
-                    <a href="{{ route('dashboard') }}">
-                        Logo
-                    </a>
+
                 </div>
 
                 <!-- Navigation Links -->
                 <div>
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('admin.title') }}
+                        {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+
             </div>
 
             <!-- Settings Dropdown -->
