@@ -4,6 +4,7 @@
 namespace Tests\Traits;
 
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -18,6 +19,11 @@ trait TestsEntityCrud
     protected $className;
 
     /**
+     * @var Factory
+     */
+    protected $factory;
+
+    /**
      * @var Model
      */
     private $entity;
@@ -29,7 +35,7 @@ trait TestsEntityCrud
     protected function assertEntitiesListed($routeName): void
     {
         $oldCount = $this->className::all()->count();
-        factory($this->className, 5)->create();
+        $this->factory->count(5)->create();
 
         $this->json('GET', route($routeName))
             ->assertStatus(200)
@@ -90,7 +96,7 @@ trait TestsEntityCrud
      */
     private function setVariables($create = true): void
     {
-        $this->entity = $create ? factory($this->className)->create() : factory($this->className)->make();
+        $this->entity = $create ? $this->factory->create() : $this->factory->make();
         $this->data = $this->entity->toArray();
     }
 

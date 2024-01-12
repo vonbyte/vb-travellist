@@ -38,13 +38,7 @@ trait HasAuthUsers
 
     protected function runUserCreation(): void
     {
-        Role::create(['name' => 'guest']);
-        $this->admin = factory(User::class)->create();
-        $this->admin->roles()->sync([Role::create(['name' => 'admin'])->id, Role::create(['name' => 'user'])->id]);
-        $this->guest = factory(User::class)->create();
-        $this->user = factory(User::class)->create();
-        $this->user->roles()->sync(Role::where('name', 'user')->first());
-        $this->admin->save();
-        $this->user->save();
+        $this->admin = User::factory()->forRole(['name' => 'admin'])->create();
+        $this->user = User::factory()->forRole(['name' => 'user'])->create();
     }
 }

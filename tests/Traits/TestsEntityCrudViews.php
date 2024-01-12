@@ -4,6 +4,7 @@
 namespace Tests\Traits;
 
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -18,6 +19,11 @@ trait TestsEntityCrudViews
     protected $className;
 
     /**
+     * @var Factory
+     */
+    protected $factory;
+
+    /**
      * @var Model
      */
     private $entity;
@@ -28,7 +34,7 @@ trait TestsEntityCrudViews
 
     protected function assertEntitiesInListView(string $routeName, string $view, string $visibleField = 'title'): void
     {
-        factory($this->className, 3)->create();
+        $this->factory->count(3)->create();
         $values = $this->className::all()->pluck($visibleField)->toArray();
         $this->get(route($routeName))
             ->assertViewIs($view)
@@ -50,8 +56,8 @@ trait TestsEntityCrudViews
 
         $this->get(route($routeName))
             ->assertViewIs($view)
-            ->assertSee('<form')
-            ->assertSeeInOrder([$checkableField,'value=""']);
+            ->assertSee('<form',false)
+            ->assertSeeInOrder([$checkableField,'value=""'],false);
     }
 
     /**
@@ -72,8 +78,8 @@ trait TestsEntityCrudViews
 
         $this->get(route($routeName,$this->data['id']))
             ->assertViewIs($view)
-            ->assertSee('<form')
-            ->assertSeeInOrder([$checkField,$this->entity->$checkField]);
+            ->assertSee('<form',false)
+            ->assertSeeInOrder([$checkField,$this->entity->$checkField],false);
     }
 
     /**
@@ -108,7 +114,7 @@ trait TestsEntityCrudViews
      */
     private function setVariables($create = true): void
     {
-        $this->entity = $create ? factory($this->className)->create() : factory($this->className)->make();
+        $this->entity = $create ? $this->factory->create() : $this->factory->make();
         $this->data = $this->entity->toArray();
     }
 

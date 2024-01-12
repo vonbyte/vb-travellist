@@ -22,4 +22,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::group(['prefix' => 'packinglists'], function () {
+    Route::get('/new', [\App\Http\Controllers\PackingListController::class, 'new'])->name('packinglist.new');
+    Route::post('/store', [\App\Http\Controllers\PackingListController::class, 'store'])->name('packinglist.store');
+    Route::get('/', [\App\Http\Controllers\PackingListController::class, 'list'])->name('packinglist.list');
+});
+
 require __DIR__.'/auth.php';

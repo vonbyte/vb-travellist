@@ -18,14 +18,15 @@ List Attributes:
     - Long Text
 - Notes
     - Long Text
-      List Relationships:
+      
+OPEN
+List Relationships:
 - User
     - Many-2-One
 
 ### View
 
 Form
-
 - Namefield: Text, required, max. 150
 - Startfield: Date
 - Endfield: Date
