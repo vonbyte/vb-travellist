@@ -25,4 +25,11 @@ class PackingListController extends Controller
         return $this->redirectBackOrJson($message, $list, 201);
 
     }
+
+    public function list(Request $request)
+    {
+        $lists = PackingList::all();
+
+        return view('packinglist.table', ['lists' => $lists]);
+    }
 }

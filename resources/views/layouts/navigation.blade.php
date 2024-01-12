@@ -15,6 +15,11 @@
                     </x-nav-link>
                 </div>
                 <div>
+                    <x-nav-link :href="route('packinglist.list')" :active="request()->routeIs('packinglist.list')">
+                        {{ __('packinglists.links.list') }}
+                    </x-nav-link>
+                </div>
+                <div>
                     <x-nav-link :href="route('packinglist.new')" :active="request()->routeIs('packinglist.new')">
                         {{ __('packinglists.links.new') }}
                     </x-nav-link>
