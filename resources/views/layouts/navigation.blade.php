@@ -14,6 +14,11 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div>
+                    <x-nav-link :href="route('packinglist.new')" :active="request()->routeIs('packinglist.new')">
+                        {{ __('packinglists.links.new') }}
+                    </x-nav-link>
+                </div>
 
             </div>
 
